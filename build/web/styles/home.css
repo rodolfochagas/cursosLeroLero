@@ -1,0 +1,26 @@
+html, body {
+    background-color: #363636;;
+}
+
+h1, #mainText, #textFooter {
+    color: #fff;
+}
+
+#homeText, #instructors, #about, #comments {
+    padding: 10vh 0;
+}
+
+#about, #comments {
+    background-color: #f8f9fa;
+}
+
+header{
+    position: fixed;
+    width: 100vw;
+    z-index: 1;
+}
+
+#imgCircle {
+    border-radius: 50%;
+}
+
