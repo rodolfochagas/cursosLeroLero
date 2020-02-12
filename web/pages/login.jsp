@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.util.*, Controller.*" %>
 <!DOCTYPE html>
 
     <head>
@@ -25,10 +26,10 @@
 	</nav>
 		<div class="container">
 			<h1>Login</h1>
-			<form id="formulario">
+			<form id="formulario" action="../LoginServlet" method="POST">
 				<div class="form-group">
 					<label for="email">Email</label>
-					<input name="email" type="email" class="form-control" id="email" placeholder="Seu email">
+                                        <input name="email" type="email" class="form-control" id="email" placeholder="Seu email">
 				</div>
 
 				<div class="form-group">
@@ -39,9 +40,9 @@
 				<button type="submit" class="btn btn-primary">Entrar</button>
 			</form>
 		</div>
-    <script src="./../scripts/jquery-3.4.1.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="./../scripts/jquery.validate.min.js"></script>
+    <!--<script src="./../scripts/jquery-3.4.1.min.js"></script>-->
+		<!--<script src="js/bootstrap.min.js"></script>-->
+		<!--<script src="./../scripts/jquery.validate.min.js"></script>-->
 
     </body>
 
