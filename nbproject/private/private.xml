@@ -6,7 +6,9 @@
             <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/src/java/View/User.java</file>
             <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/src/java/Controller/UserController.java</file>
             <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/web/pages/login.jsp</file>
+            <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/src/java/Controller/AuthenticateUser.java</file>
             <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/src/java/Model/LoginConnection.java</file>
+            <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/src/java/Controller/LoginServlet.java</file>
             <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/web/index.jsp</file>
             <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/src/java/Model/Login.java</file>
         </group>
