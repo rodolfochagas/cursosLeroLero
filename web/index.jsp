@@ -9,38 +9,38 @@
     <title>Cursos Lero Lero</title>
   </head>
   <body>
-		<header>
-			<nav class="navbar navbar-expand-lg navbar-light bg-light">
-				<div class="container-fluid">
-					<div class="navbar-header">
-						<img id="logoLero" src= "images/logo.png" alt="Imagem do Curso">
-					</div>
-					<ul class="nav justify-content-end">
-						<li class="nav-item">
-							<a class="nav-link btn-light" href="#homeText">Inicio</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link btn-light" href="#about">Sobre</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link btn-light" href="#instructors">Instrutores</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link btn-light" href="#comments">Comentários</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link btn-light" href="./pages/tables.jsp">Tabelas</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link btn-light" href="./pages/register.jsp">Registrar-se</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link btn-light" href="./pages/login.jsp">Login</a>
-						</li>
-					</ul>
-				</div>
-			</nav>
-		</header>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <img id="logoLero" src= "images/logo.png" alt="Imagem do Curso">
+                    </div>
+                    <ul class="nav justify-content-end">
+                        <li class="nav-item">
+                            <a class="nav-link btn-light" href="#homeText">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn-light" href="#about">Sobre</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn-light" href="#instructors">Instrutores</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn-light" href="#comments">Comentários</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn-light" href="./pages/tables.jsp">Tabelas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn-light" href="./pages/register.jsp">Registrar-se</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn-light" href="./pages/login.jsp">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
 		<div id="homeText" class="container-fluid text-center">
 			<img src= "images/Cursos lero lero.png" alt="Imagem do Curso">
     </div>

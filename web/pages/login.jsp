@@ -23,22 +23,22 @@
 			</ul>
 		</div>
 	</nav>
-		<div class="container">
-			<h1>Login</h1>
-			<form id="formulario">
-				<div class="form-group">
-					<label for="email">Email</label>
-					<input name="email" type="email" class="form-control" id="email" placeholder="Seu email">
-				</div>
+        <div class="container">
+            <h1>Login</h1>
+            <form id="formulario">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input name="email" type="email" class="form-control" id="email" placeholder="Seu email">
+                </div>
 
-				<div class="form-group">
-					<label for="senha">Senha</label>
-					<input name="senha" type="password" class="form-control" id="senha" placeholder="Digite a sua senha">
-				</div>
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input name="senha" type="password" class="form-control" id="senha" placeholder="Digite a sua senha">
+                </div>
 
-				<button type="submit" class="btn btn-primary">Entrar</button>
-			</form>
-		</div>
+                <button type="submit" class="btn btn-primary">Entrar</button>
+            </form>
+        </div>
     <script src="./../scripts/jquery-3.4.1.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="./../scripts/jquery.validate.min.js"></script>
