@@ -9,7 +9,7 @@ public class AuthenticateUser {
         try {
 
             //loading drivers for mysql
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
 
             //creating connection with the database
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/escola","root","");
