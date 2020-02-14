@@ -12,28 +12,18 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.sql.Connection;
+import java.sql.Statement;
+import java.sql.DriverManager;
+import java.sql.*;
 
-/**
- *
- * @author rodolfo
- */
 @WebServlet(name = "InfosClass", urlPatterns = {"/InfosClass"})
 public class InfosClass extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -46,19 +36,47 @@ public class InfosClass extends HttpServlet {
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+    
+        try{ 
+            Class.forName("com.mysql.jdbc.Driver");
+
+            Connection conn = DriverManager.getConnection("jdbc:mysql:// localhost:3306/escola", "root", "");
+            String querySelectAll = "SELECT t.id, a.nome, m.nota FROM escola.turmas as t\n" +
+                                    "inner join escola.alunos as a\n" +
+                                    "inner join escola.matriculas as m\n" +
+                                    "where m.alunos_id = a.id \n" +
+                                    "AND m.turmas_id = t.id";
+
+            Statement statement = conn.createStatement();
+            ResultSet r = statement.executeQuery(querySelectAll);
+
+            while (r.next()) {
+                out.println("<!DOCTYPE html>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>oi</title>");
+                out.println("</head>");
+                out.println("<body>");
+                out.println("<h1>" + r.getString("a.nome") + "</h1>");
+                out.println("</body>");
+                out.println("</html>");
+            }
+        }catch(Exception se) {
+            out.println("<!DOCTYPE html>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>oi</title>");
+                out.println("</head>");
+                out.println("<body>");
+                out.println("<h1>Erro</h1>");
+                out.println("</body>");
+                out.println("</html>");
+        }
     }
 
     /**
