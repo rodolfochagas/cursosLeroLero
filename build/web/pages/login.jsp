@@ -19,7 +19,7 @@
 					<a class="nav-link btn-light" href="./../index.jsp">Inicio</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link btn-light" href="./register.jsp">Registrar-se</a>
+					<a class="nav-link btn-light" href="./register.jsp">Registrar-se </a>
 				</li>
 			</ul>
 		</div>
