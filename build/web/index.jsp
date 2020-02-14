@@ -1,4 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.util.*,Controller.*,Model.*, java.sql.Connection, java.sql.DriverManager, java.sql.PreparedStatement, java.sql.*, java.io.*" %>
+
 <!DOCTYPE html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset="utf-8">
@@ -55,6 +57,13 @@
                         Curso de pilotagem
                     </div>
                     <img class="card-img-top" src= "images/curso1.jpg" alt="Imagem do Curso">
+                    <%
+                        String email = (String) session.getAttribute("email");
+                        
+                        if (email != null) {
+                            out.println("<a href='../ALGUMA_COISA" + session.getAttribute("id") +" ' class='btn btn-light'>Inscrever-se</a>");
+                        }
+                    %>
                 </div>
             </div>
             <div class="col-3">
@@ -63,6 +72,13 @@
                         Curso de autoconfiança
                    </div>
                     <img class="card-img-top" src="images/curso2.jpg" alt="Imagem do Curso">
+                    <!-- <button class="btn btn-light">Inscrever-se</button> -->
+                    <% 
+                        if (email != null) {
+                            out.println("<a href='../ALGUMA_COISA' class='btn btn-light'>Inscrever-se</a>");
+                        }
+                        
+                    %>
                 </div>
             </div>
             <div class="col-3">
@@ -71,6 +87,11 @@
                         Curso de ciência básica
                    </div>
                    <img class="card-img-top" src="images/curso3.gif" alt="Imagem do Curso">
+                   <%  
+                        if (email != null) {
+                            out.println("<a href='../ALGUMA_COISA' class='btn btn-light'>Inscrever-se</a>");
+                        }
+                    %>
                 </div>
             </div>
             <div class="col-3">
@@ -79,6 +100,11 @@
                         Curso de caça às fadas
                    </div>
                     <img class="card-img-top" src="images/curso4.jpeg" alt="Imagem do Curso">
+                    <%  
+                        if (email != null) {
+                            out.println("<a href='../ALGUMA_COISA' class='btn btn-light'>Inscrever-se</a>");
+                        }
+                    %>
                 </div>
             </div>
         </div>		
