@@ -225,7 +225,7 @@
           </li>
         </ul>
       </div>
-      <div id="textFooter" class="footer-copyright text-center py-3">© Desenvolvido por Milena Veríssimo e Rodolfo Changas
+      <div id="textFooter" class="footer-copyright text-center py-3"> © Desenvolvido por Milena Veríssimo e Rodolfo Changas
       </div>
     </footer>
     <script src="./jquery-3.4.1.min.js"></script>
