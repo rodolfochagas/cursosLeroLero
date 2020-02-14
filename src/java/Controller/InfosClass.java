@@ -16,6 +16,7 @@ import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.DriverManager;
 import java.sql.*;
+import javax.servlet.*;  
 
 @WebServlet(name = "InfosClass", urlPatterns = {"/InfosClass"})
 public class InfosClass extends HttpServlet {
@@ -54,18 +55,13 @@ public class InfosClass extends HttpServlet {
 
             Statement statement = conn.createStatement();
             ResultSet r = statement.executeQuery(querySelectAll);
-
+            RequestDispatcher rd = request.getRequestDispatcher("infosClass.jsp"); 
+            
             while (r.next()) {
-                out.println("<!DOCTYPE html>");
-                out.println("<html>");
-                out.println("<head>");
-                out.println("<title>oi</title>");
-                out.println("</head>");
-                out.println("<body>");
-                out.println("<h1>" + r.getString("a.nome") + "</h1>");
-                out.println("</body>");
-                out.println("</html>");
+                request.setAttribute("name", r.getString("a.nome"));
             }
+            rd.forward(request, response);
+            
         }catch(Exception se) {
             out.println("<!DOCTYPE html>");
                 out.println("<html>");
