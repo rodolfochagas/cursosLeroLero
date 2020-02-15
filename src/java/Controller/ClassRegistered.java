@@ -15,7 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-
+import java.util.Calendar;
+import java.sql.Date;
 
 @WebServlet(name = "ClassRegistered", urlPatterns = {"/ClassRegistered"})
 public class ClassRegistered extends HttpServlet {
@@ -49,7 +50,11 @@ public class ClassRegistered extends HttpServlet {
             
             Connection conn = DriverManager.getConnection("jdbc:mysql:// localhost:3306/escola", "root", ""); 
             
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO escola.matriculas (alunos_id,turmas_id) VALUES (" + id_aluno +  "," + id_turma + ");");
+            Calendar calendar = Calendar.getInstance();
+            Date startDate = new Date(calendar.getTime().getTime());
+            
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO escola.matriculas (alunos_id,turmas_id,data_matricula) "
+                    + "VALUES (" + id_aluno +  "," + id_turma + "," + startDate + ");");
             ps.executeUpdate();
             
             out.println("<!DOCTYPE html>");
@@ -58,7 +63,7 @@ public class ClassRegistered extends HttpServlet {
             out.println("<title>oi</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>You are sucessfully registered </h1>");
+            out.println("<h1>You are sucessfully registered " + startDate + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }catch(Exception se) {
