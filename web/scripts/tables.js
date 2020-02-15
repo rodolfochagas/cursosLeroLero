@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $("#formulario-cursos").validate({
        rules: { 
-        curso_id: {required: true, minlength: 3, maxlength: 10},
+        curso_id: {required: true, minlength: 1, maxlength: 10},
         curso_nome: { required: true, minlength: 3, maxlength: 50},
         curso_requisito: { required: true, minlength: 3, maxlength: 255},
         curso_ementa: { required: false, minlength: 3, maxlength: 255},
@@ -11,7 +11,7 @@ $(document).ready(function(){
        messages: {
         curso_id: { 
           required: " Este campo é obrigatório",
-          minlength: " O campo id deve possuir no mínimo 3 números",
+          minlength: " O campo id deve possuir no mínimo 1 número",
           maxlength: " O campo id deve possuir no máximo 10 números"},
        curso_nome: { 
           required: " Este campo é obrigatório",
@@ -35,7 +35,7 @@ $(document).ready(function(){
 
     $("#formulario-instrutores").validate({
       rules: {
-        instrutor_id: {required: true, minlength: 3, maxlength: 11},
+        instrutor_id: {required: true, minlength: 1, maxlength: 11},
         instrutor_nome: {required: true, minlength: 3, maxlength: 50},
         instrutor_email: {required: true, minlength: 3, maxlength: 50},
         instrutor_valor: {required: false, minlength: 3, maxlength: 10},
@@ -45,7 +45,7 @@ $(document).ready(function(){
       messages: {
         instrutor_id: {
           required: " Este campo é obrigatório",
-          minlength: " O campo id deve possuir no mínimo 3 caracteres",
+          minlength: " O campo id deve possuir no mínimo 1 caracter",
           maxlength: " O campo id deve possuir no máximo 11 caracteres"},
         instrutor_nome: {
           required: " Este campo é obrigatório",
@@ -71,7 +71,7 @@ $(document).ready(function(){
 
     $("#formulario-matriculas").validate({
       rules: {
-        matricula_id: {required: true, minlength: 3, maxlength: 10},
+        matricula_id: {required: true, minlength: 1, maxlength: 10},
         matricula_turmas_id: {required: true, minlength: 3, maxlength: 10},
         matricula_alunos_id: {required: true, minlength: 3, maxlength: 11},
         matricula_data: {required: false, dateITA: true},
@@ -80,7 +80,7 @@ $(document).ready(function(){
       messages: {
         matricula_id: {
           required: " Este campo é obrigatório",
-          minlength: " O campo id deve possuir no mínimo 3 caracteres",
+          minlength: " O campo id deve possuir no mínimo 1 caracter",
           maxlength: " O campo id deve possuir no máximo 10 caracteres"},
         matricula_turmas_id: {
           required: " Este campo é obrigatório",
@@ -98,7 +98,7 @@ $(document).ready(function(){
 
     $("#formulario-turmas").validate({
       rules: {
-        turma_id: {required: true, minlength: 3, maxlength: 10},
+        turma_id: {required: true, minlength: 1, maxlength: 10},
         turma_instrutores_id: {required: true, minlength: 3, maxlength: 11},
         turma_cursos_id: {required: true, minlength: 3, maxlength: 10},
         turma_data_inicio: {required: false, dateITA: true},
@@ -108,7 +108,7 @@ $(document).ready(function(){
       messages: {
         turma_id: {
           required: " Este campo é obrigatório",
-          minlength: " O campo id deve possuir no mínimo 3 caracteres",
+          minlength: " O campo id deve possuir no mínimo 1 caracter",
           maxlength: " O campo id deve possuir no máximo 10 caracteres"},
         turma_instrutores_id: {
           required: " Este campo é obrigatório",
@@ -127,7 +127,7 @@ $(document).ready(function(){
 
     $("#formulario-adm").validate({
     rules: {
-        adm_id: {required: true, minlength: 3, maxlength: 11},
+        adm_id: {required: true, minlength: 1, maxlength: 11},
         adm_nome: {required: true, minlength: 3, maxlength: 50},
         adm_login: {required: true, minlength: 3, maxlength: 20},
         adm_senha: {required: true, minlength: 3, maxlength: 255},
@@ -135,7 +135,7 @@ $(document).ready(function(){
       messages: {
         adm_id: {
           required: " Este campo é obrigatório",
-          minlength: " O campo id deve possuir no mínimo 3 caracteres",
+          minlength: " O campo id deve possuir no mínimo 1 caracteres",
           maxlength: " O campo id deve possuir no máximo 11 caracteres"},
         adm_nome: {
           required: " Este campo é obrigatório",
@@ -154,7 +154,7 @@ $(document).ready(function(){
 
     $("#formulario-alunos").validate({
       rules: {
-        aluno_id: {required: true, minlength: 3, maxlength: 11},
+        aluno_id: {required: true, minlength: 1, maxlength: 11},
         aluno_cpf: {required: true, minlength: 3, maxlength: 11},
         aluno_nome: {required: true, minlength: 3, maxlength: 50},
         aluno_email: {required: true, minlength: 3, maxlength: 50},
@@ -169,7 +169,7 @@ $(document).ready(function(){
       messages: {
         aluno_id: {
           required: " Este campo é obrigatório",
-          minlength: " O campo id deve possuir no mínimo 3 caracteres",
+          minlength: " O campo id deve possuir no mínimo 1 caracter",
           maxlength: " O campo id deve possuir no máximo 11 caracteres"},
         aluno_cpf: {
           required: " Este campo é obrigatório",

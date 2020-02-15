@@ -4,9 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/web/pages/login.jsp</file>
-            <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/src/java/Controller/LoginServlet.java</file>
+            <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/src/java/Controller/ClassRegistered.java</file>
+            <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/web/scripts/tables.js</file>
             <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/web/index.jsp</file>
-            <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/src/java/Model/AuthenticateUser.java</file>
         </group>
     </open-files>
 </project-private>

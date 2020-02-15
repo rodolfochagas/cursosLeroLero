@@ -51,21 +51,34 @@
         <h2>Sobre</h2>
         <p>A Cursos Lero Lero oferece grandes oportunidades para todos crescerem profissionalmente. Temos diversos cursos onde proporcionamos muito conhecimento de forma rápida e divertida. Conheça nossos cursos:</p>
         <div class="row">
-            <div class="col-3">
-                <div class="card">
-                    <div class="card-header">
-                        Curso de pilotagem
-                    </div>
-                    <img class="card-img-top" src= "images/curso1.jpg" alt="Imagem do Curso">
-                    <%
-                        String email = (String) session.getAttribute("email");
-                        
-                        if (email != null) {
-                            out.println("<a href='../ALGUMA_COISA" + session.getAttribute("id") +" ' class='btn btn-light'>Inscrever-se</a>");
-                        }
-                    %>
-                </div>
-            </div>
+            <%  
+                
+                Class.forName("com.mysql.jdbc.Driver");
+
+                String email = (String) session.getAttribute("email");
+                
+                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/escola", "root", ""); 
+                String querySelect = "SELECT id, nome FROM escola.cursos";
+
+                Statement statement = conn.createStatement();
+                ResultSet r = statement.executeQuery(querySelect);
+
+                while (r.next()) {
+                    out.println("<div class='col-3'>");
+                    out.println("<div class='card'>");
+                    out.println("<div class='card-header'>" + r.getString("nome"));
+                    out.println("</div>");
+                    out.println("<img class='card-img-top' src= 'images/cursos/" + r.getInt("id") + ".jpg' alt='Imagem do Curso'>");
+                    
+                    if (email != null) {
+                        out.println("<a href='pages/classes.jsp?studentId=" + session.getAttribute("id") + "&courseId=" + r.getInt("id") + "' class='btn btn-light'>Inscrever-se</a>");
+                    }
+                    
+                    out.println("</div>");
+                    out.println("</div>");
+                }
+                
+            %>
             <div class="col-3">
                 <div class="card">
                     <div class="card-header">
