@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*,Controller.*,Model.*, java.sql.Connection, java.sql.DriverManager, java.sql.PreparedStatement, java.sql.*, java.io.*" %>
 <!DOCTYPE html>
-   
+  
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -45,7 +45,7 @@
                 out.println("<p class= 'card-text'><strong>Email: </strong>" + r.getString("email") + "</p>");
                 out.println("<p class= 'card-text'><strong>Celular: </strong>" + r.getString("celular") + "</p>");
                 out.println("<a href='../Student?approved=t&id=" + r.getInt("id") + "' class='btn btn-success'>Aprovar</a>");
-                out.println("<a href='../Student?approved=f&id=" + r.getInt("id") + "' class='btn btn-danger'>Reprovar</a>");
+                out.println("<a href='./students.jsp' class='btn btn-danger'>Reprovar</a>");
                 out.println("</div>");
                 out.println("</div>");
             }
@@ -83,8 +83,8 @@
                         out.println("<td>" + r2.getString("cidade") + "</td>");
                         out.println("<td>" + r2.getString("bairro") + "</td>");
                         out.println("<td>" + r2.getString("cep") + "</td>");
-                        out.println("<td><a href='./infos_instructors.jsp' class='btn btn-danger'>Excluir</a></td>");
-                        out.println("<td><a href='./infos_instructors.jsp' class='btn btn-warning'>Alterar</a></td>");
+                        out.println("<td><a href='../DeleteStudent?id=1' class='btn btn-danger'>Excluir</a></td>");
+                        out.println("<td><a href='../DeleteStudents?id=1' class='btn btn-warning'>Alterar</a></td>");
                         out.println("</tr>");
                     }
                   %>
