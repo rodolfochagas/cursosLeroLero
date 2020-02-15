@@ -15,6 +15,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+//import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+//import java.text.DateFormat;
 
 
 @WebServlet(name = "ClassRegistered", urlPatterns = {"/ClassRegistered"})
@@ -47,9 +51,16 @@ public class ClassRegistered extends HttpServlet {
         try{
             Class.forName("com.mysql.jdbc.Driver");
             
+            Calendar calendar = Calendar.getInstance();
+//            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            Date startDate = new Date(calendar.getTime().getTime());
+            
+//            Date dateStr = format.parse(DateFormat.format(date));
+            
             Connection conn = DriverManager.getConnection("jdbc:mysql:// localhost:3306/escola", "root", ""); 
             
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO escola.matriculas (alunos_id,turmas_id) VALUES (" + id_aluno +  "," + id_turma + ");");
+//            PreparedStatement ps = conn.prepareStatement("INSERT INTO escola.matriculas (alunos_id,turmas_id,data_matricula) " + "VALUES (" + id_aluno +  "," + id_turma + "," + startDate + ");");
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO escola.matriculas (alunos_id,turmas_id) " + "VALUES (" + id_aluno +  "," + id_turma + ");");
             ps.executeUpdate();
             
             out.println("<!DOCTYPE html>");
