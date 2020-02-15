@@ -3,11 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/nbproject/build-impl.xml</file>
+            <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/src/java/Controller/Student.java</file>
             <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/web/pages/students.jsp</file>
             <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/web/pages/courses.jsp</file>
+            <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/web/pages/student_table.jsp</file>
             <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/web/pages/instructors.jsp</file>
             <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/web/pages/classes.jsp</file>
+            <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/web/index.jsp</file>
+            <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/web/styles/home.css</file>
             <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/src/java/Controller/InfosClass.java</file>
         </group>
     </open-files>
