@@ -3,15 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/src/java/View/User.java</file>
-            <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/src/java/Controller/UserController.java</file>
-            <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/web/pages/login.jsp</file>
-            <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/src/java/Controller/AuthenticateUser.java</file>
-            <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/src/java/Model/LoginConnection.java</file>
-            <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/src/java/Controller/LoginServlet.java</file>
-            <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/web/index.jsp</file>
-            <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/src/java/Model/Login.java</file>
             <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/nbproject/build-impl.xml</file>
+            <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/web/pages/students.jsp</file>
+            <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/web/pages/courses.jsp</file>
+            <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/web/pages/instructors.jsp</file>
+            <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/web/pages/classes.jsp</file>
+            <file>file:/home/rodolfo/NetBeansProjects/cursosLeroLero/src/java/Controller/InfosClass.java</file>
         </group>
     </open-files>
 </project-private>
