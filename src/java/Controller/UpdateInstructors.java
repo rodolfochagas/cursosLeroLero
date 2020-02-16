@@ -42,8 +42,8 @@ public class UpdateInstructors extends HttpServlet {
             Class.forName(dbDriver);
             
             Connection conn = DriverManager.getConnection(dbURL + dbName, dbUsername, dbPassword); 
-             PreparedStatement ps = conn.prepareStatement ("UPDATE escola.alunos\n" +
-            "SET nome=?, email=?, valor_hora=?, login=?, senha=?, experiencia=?\n" +
+             PreparedStatement ps = conn.prepareStatement ("UPDATE escola.instrutores \n" +
+            "SET nome=?, email=?, valor_hora=?, login=?, senha=?, experiencia=? \n" +
             "WHERE id=" + id + ";");
     
             ps.setString(1, name);

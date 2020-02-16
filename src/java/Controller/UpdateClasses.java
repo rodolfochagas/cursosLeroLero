@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.sql.Date;  
 
 @WebServlet(name = "UpdateClasses", urlPatterns = {"/UpdateClasses"})
 public class UpdateClasses extends HttpServlet {
@@ -19,16 +20,15 @@ public class UpdateClasses extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
+
         int id = Integer.parseInt(request.getParameter("id"));
         int cursos_id = Integer.parseInt(request.getParameter("cursos_id"));
         int instrutores_id = Integer.parseInt(request.getParameter("instrutores_id"));
-//        String data_inicio = request.getParameter("data_inicio");
-//        String data_final = request.getParameter("data_final");
+        Date data_inicio = Date.valueOf(request.getParameter("data_inicio"));
+        Date data_final = Date.valueOf(request.getParameter("data_final"));
         int carga_horaria = Integer.parseInt(request.getParameter("carga_horaria"));
         int preco = Integer.parseInt(request.getParameter("preco"));
         
-
         try{ 
             String dbDriver = "com.mysql.jdbc.Driver"; 
             String dbURL = "jdbc:mysql:// localhost:3306/"; 
@@ -40,13 +40,13 @@ public class UpdateClasses extends HttpServlet {
             
             Connection conn = DriverManager.getConnection(dbURL + dbName, dbUsername, dbPassword); 
              PreparedStatement ps = conn.prepareStatement ("UPDATE escola.turmas\n" +
-            "SET cursos_id=?, instrutores_id=?, data_inicio=?, data_final=?, carga_horaria=?, preco=?\n" +
+            "SET cursos_id=?, instrutores_id=?, data_inicio=?, data_final=? ,carga_horaria=?, preco=? \n" +
             "WHERE id=" + id + ";");
     
             ps.setInt(1, cursos_id);
             ps.setInt(2, instrutores_id);
-//            ps.setDate(3, data_inicio);
-//            ps.setDate(4, data_final);
+            ps.setDate(3, data_inicio);
+            ps.setDate(4, data_final);
             ps.setInt(5, carga_horaria);
             ps.setInt(6, preco);
             
