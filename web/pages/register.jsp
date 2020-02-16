@@ -9,21 +9,7 @@
         <title>Cursos Lero Lero</title>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<img id="logoLero" src= "./../images/logo.png" alt="Imagem do Curso">
-			</div>
-			<ul class="nav justify-content-end">
-				<li class="nav-item">
-					<a class="nav-link btn-light" href="./../index.jsp">Inicio</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link btn-light" href="./login.jsp">Login</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
+        <jsp:include page="../template/header.jsp" />
 		<div class="container">
 			<h1>Registro</h1>
                         <form id="formulario" method="POST" action="../RegisterServlet">

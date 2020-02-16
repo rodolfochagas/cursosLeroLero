@@ -28,12 +28,6 @@
                         <a class="nav-link btn-light" href="#instructors">Instrutores</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn-light" href="#comments">Comentários</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn-light" href="./pages/tables.jsp">Tabelas</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link btn-light" href="./pages/register.jsp">Registrar-se</a>
                     </li>
                     <li class="nav-item">
