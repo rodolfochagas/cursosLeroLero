@@ -17,8 +17,8 @@ import java.sql.DriverManager;
 import java.sql.Connection;
 
 
-@WebServlet(name = "DeleteStudent", urlPatterns = {"/DeleteStudent"})
-public class DeleteStudent extends HttpServlet {
+@WebServlet(name = "Delete", urlPatterns = {"/Delete"})
+public class Delete extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -28,10 +28,10 @@ public class DeleteStudent extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet DeleteStudent</title>");            
+            out.println("<title>Servlet Delete</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet DeleteStudent at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet Delete at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -53,44 +53,49 @@ public class DeleteStudent extends HttpServlet {
             
             Connection conn = DriverManager.getConnection("jdbc:mysql:// localhost:3306/escola", "root", "");
             
-            String queryDeleteRegistration = "DELETE FROM escola.matriculas \n" + "where turmas_id=(SELECT t.id from escola.turmas t \n" + "where t.cursos_id=" + id + ");";
-            String queryDeleteClasses = "DELETE FROM escola.turmas  WHERE cursos_id=" + id + ";";
+            String queryDeleteInstructor = "DELETE FROM escola.instrutores where id="+ id + ";";
+            String queryDeleteRegistration_courses = "DELETE FROM escola.matriculas \n" + "where turmas_id=(SELECT t.id from escola.turmas t \n" + "where t.cursos_id=" + id + ");";
+            String queryDeleteClasses_courses = "DELETE FROM escola.turmas  WHERE cursos_id=" + id + ";";
+            String queryDeleteRegistration_classes = "DELETE FROM escola.matriculas\n" + "where turmas_id=" + id + ");";
+            String queryDeleteClasses_classes = "DELETE FROM escola.turmas WHERE id=" + id + ";";
+            String queryDeleteRegistration_instructors = "DELETE FROM escola.matriculas\n" + "where turmas_id= (SELECT t.id from escola.turmas t\n" + "where t.instrutores_id="+ id + ")";
+            String queryDeleteClasses_instructors = "DELETE FROM escola.turmas  WHERE instrutores_id=" + id + ";";
             String queryDeteteCourses = "DELETE FROM escola.cursos WHERE id=" + id + ";";
             String queryDeleteStudent = "DELETE FROM escola.alunos WHERE id="+ id + ";";
-            String queryDeleteInstructor = "DELETE FROM escola.instrutores where id="+ id + ";";
-
-            PreparedStatement psRegistrations = conn.prepareStatement(queryDeleteRegistration);
-            PreparedStatement psDeleteClasses = conn.prepareStatement(queryDeleteClasses);
+            
+            PreparedStatement psRegistrations_courses = conn.prepareStatement(queryDeleteRegistration_courses);
+            PreparedStatement psDeleteClasses_courses = conn.prepareStatement(queryDeleteClasses_courses);
+            PreparedStatement psRegistrations_classes = conn.prepareStatement(queryDeleteRegistration_classes);
+            PreparedStatement psDeleteClasses_classes = conn.prepareStatement(queryDeleteClasses_classes);
+            PreparedStatement psRegistrations_instructors = conn.prepareStatement(queryDeleteRegistration_instructors);
+            PreparedStatement psDeleteClasses_instructors = conn.prepareStatement(queryDeleteClasses_instructors);
             PreparedStatement psDeteteCourses = conn.prepareStatement(queryDeteteCourses);
             PreparedStatement psDeleteStudent = conn.prepareStatement(queryDeleteStudent);
+            PreparedStatement psDeleteInstructor = conn.prepareStatement(queryDeleteInstructor);
             
             int i = 0;
             
             switch (type) {
                 case 0:
+//                  Students
                     i = psDeleteStudent.executeUpdate();
                     break;
                 case 1:
-                    i = psRegistrations.executeUpdate();
-                    psDeleteClasses.executeUpdate();
-                    psDeteteCourses.executeUpdate();
+//                  Courses
+                    psRegistrations_courses.executeUpdate();
+                    psDeleteClasses_courses.executeUpdate();
+                    i = psDeteteCourses.executeUpdate();
                     break;
                 case 2:
-                    i = psRegistrations.executeUpdate();
-                    psDeleteClasses.executeUpdate();
- 
+//                  Classes
+                    psRegistrations_classes.executeUpdate();
+                    i = psDeleteClasses_classes.executeUpdate();
                     break;
-                    
-//                query = "where turmas_id=(SELECT t.id from escola.turmas t\n" +
-//                        "where t.cursos_id=" + id + ")\n" +
-//                        "\n" +
-//                        "DELETE FROM escola.turmas\n" +
-//                        "WHERE cursos_id=" + id + ")\n";
-                    
-//                query = "where turmas_id=(SELECT t.id from escola.turmas t\n" +
-//                        "where t.cursos_id=" + id + ")\n" +
-//                        "\n";
                 case 3:
+//                  Instructors
+                    psRegistrations_instructors.executeUpdate();
+                    psDeleteClasses_instructors.executeUpdate();
+                    i = psDeleteInstructor.executeUpdate();
                     break;
                 default:
                     break;
@@ -125,10 +130,10 @@ public class DeleteStudent extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet DeleteStudent</title>");            
+            out.println("<title>Servlet Delete</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet DeleteStudent at " + se + " " + type + "</h1>");
+            out.println("<h1>Servlet Delete at " + se + " " + type + "</h1>");
             out.println("</body>");
             out.println("</html>");
         
