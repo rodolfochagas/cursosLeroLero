@@ -56,7 +56,7 @@ public class Delete extends HttpServlet {
             String queryDeleteInstructor = "DELETE FROM escola.instrutores where id="+ id + ";";
             String queryDeleteRegistration_courses = "DELETE FROM escola.matriculas \n" + "where turmas_id=(SELECT t.id from escola.turmas t \n" + "where t.cursos_id=" + id + ");";
             String queryDeleteClasses_courses = "DELETE FROM escola.turmas  WHERE cursos_id=" + id + ";";
-            String queryDeleteRegistration_classes = "DELETE FROM escola.matriculas\n" + "where turmas_id=" + id + ");";
+            String queryDeleteRegistration_classes = "DELETE FROM escola.matriculas\n" + "where turmas_id=" + id + ";";
             String queryDeleteClasses_classes = "DELETE FROM escola.turmas WHERE id=" + id + ";";
             String queryDeleteRegistration_instructors = "DELETE FROM escola.matriculas\n" + "where turmas_id= (SELECT t.id from escola.turmas t\n" + "where t.instrutores_id="+ id + ")";
             String queryDeleteClasses_instructors = "DELETE FROM escola.turmas  WHERE instrutores_id=" + id + ";";
