@@ -26,15 +26,15 @@ public class RegisterServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
-        String name = request.getParameter("nome");
-        String email = request.getParameter("email");
-        String password = request.getParameter("senha");
-        String cpf = request.getParameter("cpf");
-        String celular = request.getParameter("celular");
-        String endereco = request.getParameter("endereco");
-        String cidade = request.getParameter("cidade");
-        String bairro = request.getParameter("bairro");
-        String cep = request.getParameter("cep");
+        String name = request.getParameter("aluno_nome");
+        String email = request.getParameter("aluno_email");
+        String password = request.getParameter("aluno_senha");
+        String cpf = request.getParameter("aluno_cpf");
+        String celular = request.getParameter("aluno_celular");
+        String endereco = request.getParameter("aluno_endereco");
+        String cidade = request.getParameter("aluno_cidade");
+        String bairro = request.getParameter("aluno_bairro");
+        String cep = request.getParameter("aluno_cep");
         
 
         try{ 
@@ -48,7 +48,7 @@ public class RegisterServlet extends HttpServlet {
             
             Connection conn = DriverManager.getConnection(dbURL + dbName, dbUsername, dbPassword); 
              PreparedStatement ps = conn.prepareStatement
-                        ("insert into alunos values(null,?,?,?,?,?,?,?,?,?,?,null,'n')");
+                        ("insert into alunos values(null,?,?,?,?,?,?,?,?,?,?,null,'f')");
     
             ps.setString(1, cpf);
             ps.setString(2, name);
