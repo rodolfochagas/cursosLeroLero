@@ -52,6 +52,11 @@
                   <div class="col-sm-10">
                     <input type="text" class="form-control" name="instrutor_senha">
                   </div>
+                  <label class="col-sm-2" for="foto">Foto do usuário</label>
+                  <div class="col-sm-10">
+                    <label for="foto">Selecione uma foto no formato .jpg:</label>
+                    <input type="file" name="instrutor_foto"><br><br>
+                  </div>
                   <button type="submit" class="btn btn-primary">Enviar</button>
                 </div>
             </form>
