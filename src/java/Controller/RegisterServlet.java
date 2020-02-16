@@ -11,6 +11,7 @@ import java.sql.DriverManager;
 import javax.servlet.annotation.WebServlet;
 import java.sql.PreparedStatement;
 
+
 @WebServlet(name = "RegisterServlet", urlPatterns = {"/RegisterServlet"})
 public class RegisterServlet extends HttpServlet {
 
@@ -35,7 +36,7 @@ public class RegisterServlet extends HttpServlet {
         String cidade = request.getParameter("aluno_cidade");
         String bairro = request.getParameter("aluno_bairro");
         String cep = request.getParameter("aluno_cep");
-        
+        CriptografaSenhaMD5 md5Criptografia = new CriptografaSenhaMD5();
 
         try{ 
             String dbDriver = "com.mysql.jdbc.Driver"; 
@@ -55,7 +56,7 @@ public class RegisterServlet extends HttpServlet {
             ps.setString(3, email);
             ps.setString(4, celular);
             ps.setString(5, email);
-            ps.setString(6, password);
+            ps.setString(6, md5Criptografia.criptografar(password));
             ps.setString(7, endereco);
             ps.setString(8, cidade);
             ps.setString(9, bairro);

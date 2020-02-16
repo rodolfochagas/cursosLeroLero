@@ -23,8 +23,9 @@ public class LoginServlet extends HttpServlet {
         
         String email = request.getParameter("email");
         String password = request.getParameter("senha");
+        CriptografaSenhaMD5 md5Criptografia = new CriptografaSenhaMD5();
         
-         if(AuthenticateUser.checkUser(email, password))
+         if(AuthenticateUser.checkUser(email, md5Criptografia.criptografar(password)))
         {
             RequestDispatcher rs = request.getRequestDispatcher("Welcome");
             rs.forward(request, response);
