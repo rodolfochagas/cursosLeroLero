@@ -83,7 +83,7 @@
                         out.println("<td>" + r2.getString("cidade") + "</td>");
                         out.println("<td>" + r2.getString("bairro") + "</td>");
                         out.println("<td>" + r2.getString("cep") + "</td>");
-                        out.println("<td><a href='../DeleteStudent?id=1' class='btn btn-danger'>Excluir</a></td>");
+                        out.println("<td><a href='../DeleteStudent?id=" + r2.getInt("id") + "&type=0' class='btn btn-danger'>Excluir</a></td>");
                         out.println("<td><a href='../DeleteStudents?id=1' class='btn btn-warning'>Alterar</a></td>");
                         out.println("</tr>");
                     }

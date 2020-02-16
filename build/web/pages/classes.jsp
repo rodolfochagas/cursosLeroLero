@@ -44,7 +44,6 @@
 
                     Connection conn = DriverManager.getConnection("jdbc:mysql:// localhost:3306/escola", "root", "");
                     String querySelectAll = "SELECT * FROM escola.turmas";
-
                     Statement statement = conn.createStatement();
                     ResultSet r = statement.executeQuery(querySelectAll);
                     
@@ -58,7 +57,7 @@
                         out.println("<td>" + r.getDate("data_final") + "</td>");
                         out.println("<td>" + r.getShort("carga_horaria") + "</td>");
                         out.println("<td><a href='./infos_class.jsp?id=" + r.getInt("id") + "' class='btn btn-success'>Mais informações</a></td>");
-                        out.println("<td><a href='./infos_instructors.jsp' class='btn btn-danger'>Excluir</a></td>");
+                        out.println("<a href='../DeleteStudent?id=" + r.getInt("id") + "&type=turmas' class='btn btn-danger'>Excluir</a></td>");
                         out.println("<td><a href='./infos_instructors.jsp' class='btn btn-warning'>Alterar</a></td>");
                         out.println("</tr>");
                     }
