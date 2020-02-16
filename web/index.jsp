@@ -119,6 +119,15 @@
                 }
             %>
         </div>
+        <form id="formulario-cursos">
+        <h2>Adicione um cometário sobre os nossos cursos também!</h2>
+        <div class="form-group row" id="comments">
+          <div class="col-sm-10">
+            <input type="text" class="form-control" name="comments">
+          </div>
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </div>
+      </form>
     </div>
 </section>
 <footer class="page-footer font-small unique-color-dark pt-4">
