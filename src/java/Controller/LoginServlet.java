@@ -29,7 +29,19 @@ public class LoginServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("senha");
         
-        if(AuthenticateUser.checkUser(email, password)) {
+        if ("admin@email.com".equals(email) && "admin".equals(password)) {
+            HttpSession session = request.getSession();
+            session.setAttribute("email",email);
+            
+            session.setAttribute("id", 0);
+            session.setAttribute("type", "admin");
+            
+            RequestDispatcher rs = request.getRequestDispatcher("index.jsp");
+            rs.forward(request, response);
+        
+        }
+        
+        else if(AuthenticateUser.checkUserStudent(email, password)) {
             HttpSession session = request.getSession();
             session.setAttribute("email",email);
             
@@ -41,6 +53,7 @@ public class LoginServlet extends HttpServlet {
                 rs.next();
                 int id = rs.getInt("id");
                 session.setAttribute("id", id);
+                session.setAttribute("type", "aluno");
                 
             } catch(Exception e) {
                 e.printStackTrace();
@@ -49,6 +62,30 @@ public class LoginServlet extends HttpServlet {
             RequestDispatcher rs = request.getRequestDispatcher("index.jsp");
             rs.forward(request, response);
         }
+        
+        else if (AuthenticateUser.checkUserInstructor(email, password)){
+            HttpSession session = request.getSession();
+            session.setAttribute("email",email);
+            
+            try {
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/escola","root","");
+                PreparedStatement ps = con.prepareStatement("SELECT id FROM escola.instrutores WHERE email=?");
+                ps.setString(1, email);       
+                ResultSet rs = ps.executeQuery();
+                rs.next();
+                int id = rs.getInt("id");
+                session.setAttribute("id", id);
+                session.setAttribute("type", "instrutor");
+                
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
+
+            RequestDispatcher rs = request.getRequestDispatcher("index.jsp");
+            rs.forward(request, response);
+            
+        }
+        
         else {
            out.println("<h1>Usuário ou senha incorretos</h1>");
            RequestDispatcher rs = request.getRequestDispatcher("index.jsp");

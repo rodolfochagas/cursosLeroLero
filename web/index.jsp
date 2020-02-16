@@ -56,6 +56,8 @@
                 Class.forName("com.mysql.jdbc.Driver");
 
                 String email = (String) session.getAttribute("email");
+                String type = (String) session.getAttribute("type");
+
                 
                 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/escola", "root", ""); 
                 String querySelect = "SELECT id, nome FROM escola.cursos";
@@ -70,7 +72,7 @@
                     out.println("</div>");
                     out.println("<img class='card-img-top' src= 'images/cursos/" + r.getInt("id") + ".jpg' alt='Imagem do Curso'>");
                     
-                    if (email != null) {
+                    if ("aluno".equals(type)) {
                         out.println("<a href='pages/classes.jsp?studentId=" + session.getAttribute("id") + "&courseId=" + r.getInt("id") + "' class='btn btn-light'>Inscrever-se</a>");
                     }
                     
@@ -87,7 +89,7 @@
                     <img class="card-img-top" src="images/curso2.jpg" alt="Imagem do Curso">
                     <!-- <button class="btn btn-light">Inscrever-se</button> -->
                     <% 
-                        if (email != null) {
+                        if ("aluno".equals(type)) {
                             out.println("<a href='../ALGUMA_COISA' class='btn btn-light'>Inscrever-se</a>");
                         }
                         
@@ -101,7 +103,7 @@
                    </div>
                    <img class="card-img-top" src="images/curso3.gif" alt="Imagem do Curso">
                    <%  
-                        if (email != null) {
+                        if ("aluno".equals(type)) {
                             out.println("<a href='../ALGUMA_COISA' class='btn btn-light'>Inscrever-se</a>");
                         }
                     %>
@@ -114,7 +116,7 @@
                    </div>
                     <img class="card-img-top" src="images/curso4.jpeg" alt="Imagem do Curso">
                     <%  
-                        if (email != null) {
+                        if ("aluno".equals(type)) {
                             out.println("<a href='../ALGUMA_COISA' class='btn btn-light'>Inscrever-se</a>");
                         }
                     %>
