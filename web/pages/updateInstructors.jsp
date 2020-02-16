@@ -59,7 +59,7 @@
                   <label class="col-sm-2" for="valor_hora">Valor por hora</label>
                   <div class="col-sm-10">
                      <%
-                         out.println("<input type='number' value='" + r.getString("valor_hora") + "' name='valor_hora'>");
+                         out.println("<input type='number' value='" + r.getInt("valor_hora") + "' name='valor_hora'>");
                      %>
                   </div>
                   <label class="col-sm-2" for="senha">Senha</label>

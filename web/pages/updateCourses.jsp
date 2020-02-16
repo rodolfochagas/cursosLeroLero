@@ -41,7 +41,7 @@
                     r.next();
             %>
 
-            <form id="formulario-alunos" method="POST" action="../UpdateStudent">
+            <form id="formulario-alunos" method="POST" action="../UpdateCourses">
                 <h2>Cursos</h2>
                 <div class="form-group row" name="tabela-adm">
                   <label class="col-sm-2" for="nome">Nome*</label>
@@ -65,13 +65,13 @@
                   <label class="col-sm-2" for="carga_horaria">Carga horária</label>
                   <div class="col-sm-10">
                     <%
-                        out.println("<input type='text' value='" + r.getString("carga_horaria") + "' name='carga_horaria'>");
+                        out.println("<input type='number' value='" + r.getInt("carga_horaria") + "' name='carga_horaria'>");
                     %>
                   </div>
                   <label class="col-sm-2" for="preco">Preço</label>
                   <div class="col-sm-10">
                     <%
-                        out.println("<input type='number' value='" + r.getString("preco") + "' name='preco'>");
+                        out.println("<input type='number' value='" + r.getInt("preco") + "' name='preco'>");
                     %>
                   </div>
                   <button type="submit" class="btn btn-primary">Salvar</button>

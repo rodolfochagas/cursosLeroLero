@@ -41,12 +41,13 @@
                     r.next();
             %>
 
-            <form id="formulario-alunos" method="POST" action="../UpdateStudent">
+            <form id="formulario-alunos" method="POST" action="../UpdateClasses">
                 <h2>Turmas</h2>
                 <div class="form-group row" name="tabela-adm">
                   <label class="col-sm-2" for="instrutores_id">ID do instrutor</label>
                   <div class="col-sm-10">
                     <%
+                        out.println("<input type='hidden' value='" + r.getString("id") + "' name='id'>");
                         out.println("<input type='number' value='" + r.getInt("instrutores_id") + "' name='instrutores_id'>");                        
                      %>
                   </div>
@@ -74,24 +75,6 @@
                         out.println("<input type='number' value='" + r.getString("carga_horaria") + "' name='carga_horaria'>");
                     %>
                   </div>
-                  <label class="col-sm-2" for="cidade">Cidade</label>
-                  <div class="col-sm-10">
-                    <%
-                        out.println("<input type='text' value='" + r.getString("cidade") + "' name='cidade'>");
-                    %>
-                  </div>
-                  <label class="col-sm-2" for="bairro">Bairro</label>
-                  <div class="col-sm-10">
-                    <%
-                        out.println("<input type='text' value='" + r.getString("bairro") + "' name='bairro'>");
-                    %>
-                  </div>
-                  <label class="col-sm-2" for="cep">CEP</label>
-                  <div class="col-sm-10">
-                    <%
-                        out.println("<input type='text' value='" + r.getString("cep") + "' name='cep'>");
-                    %>
-                  </div>         
                   <button type="submit" class="btn btn-primary">Salvar</button>
                 </div>
                 </form>
