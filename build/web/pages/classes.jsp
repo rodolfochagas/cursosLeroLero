@@ -74,7 +74,11 @@
                         out.println("<td>" + r_class.getString("data_inicio") + "</td>");
                         out.println("<td>" + r_class.getString("data_final") + "</td>");
                         out.println("<td>" + r_class.getString("carga_horaria") + "</td>");
+<<<<<<< HEAD
                         out.println("<td><a href='../ClassRegistered?classId=" + r_class.getString("id") + "&studentId=" + id_aluno + "&date=" + "' class='btn btn-warning'>Inscrever-se</a></td>");
+=======
+                        out.println("<td><a href='../ClassRegistered?classId=" + r_class.getString("id") + "&studentId=" + id_aluno + "' class='btn btn-warning'>Inscrever-se</a></td>");
+>>>>>>> 9b562f8a1c5cb5539a0837aa7efa7b3071d6efa2
                         out.println("<tr>");
             //                out.println("<a href='../Student?approved=t&id=" + r.getInt("id") + "' class='btn btn-success'>Aprovar</a>");
             //                out.println("<a href='../Student?approved=f&id=" + r.getInt("id") + "' class='btn btn-danger'>Reprovar</a>");
