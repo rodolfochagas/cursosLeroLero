@@ -59,7 +59,7 @@
                         out.println("<td>" + r.getShort("carga_horaria") + "</td>");
                         out.println("<td><a href='./infos_class.jsp?id=" + r.getInt("id") + "' class='btn btn-success'>Mais informações</a></td>");
                         out.println("<td><a href='./infos_instructors.jsp' class='btn btn-danger'>Excluir</a></td>");
-                        out.println("<td><a href='./infos_instructors.jsp' class='btn btn-warning'>Alterar</a></td>");
+                        out.println("<td><a href='updateClasses.jsp?studentId=" + r.getInt("id") + "' class='btn btn-warning'>Alterar</a></td>");
                         out.println("</tr>");
                     }
                   %>

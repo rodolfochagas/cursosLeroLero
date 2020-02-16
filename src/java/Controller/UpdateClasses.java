@@ -26,12 +26,7 @@ public class UpdateClasses extends HttpServlet {
 //        String data_inicio = request.getParameter("data_inicio");
 //        String data_final = request.getParameter("data_final");
         int carga_horaria = Integer.parseInt(request.getParameter("carga_horaria"));
-        String cpf = request.getParameter("cpf");
-        String celular = request.getParameter("celular");
-        String endereco = request.getParameter("endereco");
-        String cidade = request.getParameter("cidade");
-        String bairro = request.getParameter("bairro");
-        String cep = request.getParameter("cep");
+        int preco = Integer.parseInt(request.getParameter("preco"));
         
 
         try{ 
@@ -44,18 +39,16 @@ public class UpdateClasses extends HttpServlet {
             Class.forName(dbDriver);
             
             Connection conn = DriverManager.getConnection(dbURL + dbName, dbUsername, dbPassword); 
-             PreparedStatement ps = conn.prepareStatement ("UPDATE escola.alunos\n" +
-            "SET cpf=?, nome=?, email=?, celular=?, endereco=?, cidade=?, bairro=?, cep=?\n" +
+             PreparedStatement ps = conn.prepareStatement ("UPDATE escola.turmas\n" +
+            "SET cursos_id=?, instrutores_id=?, data_inicio=?, data_final=?, carga_horaria=?, preco=?\n" +
             "WHERE id=" + id + ";");
     
-            ps.setString(1, cpf);
-            ps.setString(2, name);
-            ps.setString(3, email);
-            ps.setString(4, celular);
-            ps.setString(5, endereco);
-            ps.setString(6, cidade);
-            ps.setString(7, bairro);
-            ps.setString(8, cep);
+            ps.setInt(1, cursos_id);
+            ps.setInt(2, instrutores_id);
+//            ps.setDate(3, data_inicio);
+//            ps.setDate(4, data_final);
+            ps.setInt(5, carga_horaria);
+            ps.setInt(6, preco);
             
             int i = ps.executeUpdate();
             
@@ -76,7 +69,7 @@ public class UpdateClasses extends HttpServlet {
                 out.println("<title>oi</title>");
                 out.println("</head>");
                 out.println("<body>");
-                out.println("<h1>You are sucessfully registered " + cidade + id + " </h1>");
+                out.println("<h1>You are sucessfully registered</h1>");
                 out.println("</body>");
                 out.println("</html>");
             }
@@ -89,7 +82,7 @@ public class UpdateClasses extends HttpServlet {
                 out.println("<title>oi</title>");
                 out.println("</head>");
                 out.println("<body>");
-                out.println("<h1>Erro " + se + id + cpf + "</h1>");
+                out.println("<h1>Erro " + se + "</h1>");
                 out.println("</body>");
                 out.println("</html>");
         }
