@@ -11,14 +11,15 @@ import java.sql.DriverManager;
 import javax.servlet.annotation.WebServlet;
 import java.sql.PreparedStatement;
 
-@WebServlet(name = "RegisterServlet", urlPatterns = {"/RegisterServlet"})
-public class RegisterServlet extends HttpServlet {
+@WebServlet(name = "UpdateStudent", urlPatterns = {"/UpdateStudent"})
+public class UpdateStudent extends HttpServlet {
 
-    public RegisterServlet(){}
+    public UpdateStudent(){}
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
     }
 
     @Override
@@ -26,15 +27,15 @@ public class RegisterServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
-        String name = request.getParameter("aluno_nome");
-        String email = request.getParameter("aluno_email");
-        String password = request.getParameter("aluno_senha");
-        String cpf = request.getParameter("aluno_cpf");
-        String celular = request.getParameter("aluno_celular");
-        String endereco = request.getParameter("aluno_endereco");
-        String cidade = request.getParameter("aluno_cidade");
-        String bairro = request.getParameter("aluno_bairro");
-        String cep = request.getParameter("aluno_cep");
+        int id = Integer.parseInt(request.getParameter("id"));
+        String name = request.getParameter("nome");
+        String email = request.getParameter("email");
+        String cpf = request.getParameter("cpf");
+        String celular = request.getParameter("celular");
+        String endereco = request.getParameter("endereco");
+        String cidade = request.getParameter("cidade");
+        String bairro = request.getParameter("bairro");
+        String cep = request.getParameter("cep");
         
 
         try{ 
@@ -47,19 +48,18 @@ public class RegisterServlet extends HttpServlet {
             Class.forName(dbDriver);
             
             Connection conn = DriverManager.getConnection(dbURL + dbName, dbUsername, dbPassword); 
-             PreparedStatement ps = conn.prepareStatement
-                        ("insert into alunos values(null,?,?,?,?,?,?,?,?,?,?,null,'f')");
+             PreparedStatement ps = conn.prepareStatement ("UPDATE escola.alunos\n" +
+            "SET cpf=?, nome=?, email=?, celular=?, endereco=?, cidade=?, bairro=?, cep=?\n" +
+            "WHERE id=" + id + ";");
     
             ps.setString(1, cpf);
             ps.setString(2, name);
             ps.setString(3, email);
             ps.setString(4, celular);
-            ps.setString(5, email);
-            ps.setString(6, password);
-            ps.setString(7, endereco);
-            ps.setString(8, cidade);
-            ps.setString(9, bairro);
-            ps.setString(10, cep);
+            ps.setString(5, endereco);
+            ps.setString(6, cidade);
+            ps.setString(7, bairro);
+            ps.setString(8, cep);
             
             int i = ps.executeUpdate();
             
@@ -80,7 +80,7 @@ public class RegisterServlet extends HttpServlet {
                 out.println("<title>oi</title>");
                 out.println("</head>");
                 out.println("<body>");
-                out.println("<h1>You are sucessfully registered </h1>");
+                out.println("<h1>You are sucessfully registered " + cidade + id + " </h1>");
                 out.println("</body>");
                 out.println("</html>");
             }
@@ -93,7 +93,7 @@ public class RegisterServlet extends HttpServlet {
                 out.println("<title>oi</title>");
                 out.println("</head>");
                 out.println("<body>");
-                out.println("<h1>Erro</h1>");
+                out.println("<h1>Erro " + se + id + cpf + "</h1>");
                 out.println("</body>");
                 out.println("</html>");
         }

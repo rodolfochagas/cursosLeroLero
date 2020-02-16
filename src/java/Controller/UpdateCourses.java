@@ -1,41 +1,37 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.sql.Connection;
-import java.io.PrintWriter;
-import java.sql.DriverManager;
-import javax.servlet.annotation.WebServlet;
-import java.sql.PreparedStatement;
 
-@WebServlet(name = "RegisterServlet", urlPatterns = {"/RegisterServlet"})
-public class RegisterServlet extends HttpServlet {
+@WebServlet(name = "UpdateCourses", urlPatterns = {"/UpdateCourses"})
+public class UpdateCourses extends HttpServlet {
 
-    public RegisterServlet(){}
-    
+   
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+       response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
-        String name = request.getParameter("aluno_nome");
-        String email = request.getParameter("aluno_email");
-        String password = request.getParameter("aluno_senha");
-        String cpf = request.getParameter("aluno_cpf");
-        String celular = request.getParameter("aluno_celular");
-        String endereco = request.getParameter("aluno_endereco");
-        String cidade = request.getParameter("aluno_cidade");
-        String bairro = request.getParameter("aluno_bairro");
-        String cep = request.getParameter("aluno_cep");
-        
+        int id = Integer.parseInt(request.getParameter("id"));
+        String name = request.getParameter("nome");
+        String requisito = request.getParameter("requisito");
+        String ementa = request.getParameter("ementa");
+        int carga_horaria = Integer.parseInt(request.getParameter("carga_horaria"));
+        int preco = Integer.parseInt(request.getParameter("preco"));
 
         try{ 
             String dbDriver = "com.mysql.jdbc.Driver"; 
@@ -47,19 +43,15 @@ public class RegisterServlet extends HttpServlet {
             Class.forName(dbDriver);
             
             Connection conn = DriverManager.getConnection(dbURL + dbName, dbUsername, dbPassword); 
-             PreparedStatement ps = conn.prepareStatement
-                        ("insert into alunos values(null,?,?,?,?,?,?,?,?,?,?,null,'f')");
+             PreparedStatement ps = conn.prepareStatement ("UPDATE escola.cursos\n" +
+            "SET nome=?, requisito=?, ementa=?, carga_horaria=?, preco=?\n" +
+            "WHERE id=" + id + ";");
     
-            ps.setString(1, cpf);
-            ps.setString(2, name);
-            ps.setString(3, email);
-            ps.setString(4, celular);
-            ps.setString(5, email);
-            ps.setString(6, password);
-            ps.setString(7, endereco);
-            ps.setString(8, cidade);
-            ps.setString(9, bairro);
-            ps.setString(10, cep);
+            ps.setString(1, name);
+            ps.setString(2, requisito);
+            ps.setString(3, ementa);
+            ps.setInt(4, carga_horaria);
+            ps.setInt(5, preco);
             
             int i = ps.executeUpdate();
             
@@ -80,7 +72,7 @@ public class RegisterServlet extends HttpServlet {
                 out.println("<title>oi</title>");
                 out.println("</head>");
                 out.println("<body>");
-                out.println("<h1>You are sucessfully registered </h1>");
+                out.println("<h1>You are sucessfully registered</h1>");
                 out.println("</body>");
                 out.println("</html>");
             }
@@ -93,15 +85,11 @@ public class RegisterServlet extends HttpServlet {
                 out.println("<title>oi</title>");
                 out.println("</head>");
                 out.println("<body>");
-                out.println("<h1>Erro</h1>");
+                out.println("<h1>Erro " + se + "</h1>");
                 out.println("</body>");
                 out.println("</html>");
         }
     }
 
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
+   
 }
