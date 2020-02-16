@@ -56,7 +56,7 @@
                         out.println("<td>" + r.getString("experiencia") + "</td>");
                         out.println("<td><a href='./infos_instructors.jsp?id=" + r.getInt("id") + "' class='btn btn-success'>Ver turmas</a></td>");
                         out.println("<td><a href='./infos_instructors.jsp' class='btn btn-danger'>Excluir</a></td>");
-                        out.println("<td><a href='./infos_instructors.jsp' class='btn btn-warning'>Alterar</a></td>");
+                        out.println("<td><a href='./updateInstructors.jsp?studentId=" + r.getInt("id") + "' class='btn btn-warning'>Alterar</a></td>");
                         out.println("</tr>");
                     }
                   %>
