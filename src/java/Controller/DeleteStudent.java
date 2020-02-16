@@ -45,12 +45,13 @@ public class DeleteStudent extends HttpServlet {
             throws ServletException, IOException {
         
         int id = Integer.parseInt(request.getParameter("id"));
+        String type = request.getParameter("type");
         
         try{
             Class.forName("com.mysql.jdbc.Driver");
 
             Connection conn = DriverManager.getConnection("jdbc:mysql:// localhost:3306/escola", "root", "");
-            PreparedStatement ps = conn.prepareStatement("DELETE FROM escola.alunos \n" +
+            PreparedStatement ps = conn.prepareStatement("DELETE FROM escola."+ type + "\n" +
                                     "WHERE id="+ id + ";");
 
             ps.executeUpdate();

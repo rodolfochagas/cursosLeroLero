@@ -55,7 +55,7 @@
                         out.println("<td>" + r.getString("ementa") + "</td>");
                         out.println("<td>" + r.getShort("carga_horaria") + "</td>");
                         out.println("<td>" + r.getDouble("preco") + "</td>");
-                        out.println("<td><a href='./infos_instructors.jsp' class='btn btn-danger'>Excluir</a></td>");
+                        out.println("<td><a href='../DeleteStudent?id=" + r.getInt("id") + "&type=cursos' class='btn btn-danger'>Excluir</a></td>");
                         out.println("<td><a href='./infos_instructors.jsp' class='btn btn-warning'>Alterar</a></td>");
                         out.println("</tr>");
                     }
