@@ -44,7 +44,6 @@
 
                     Connection conn = DriverManager.getConnection("jdbc:mysql:// localhost:3306/escola", "root", "");
                     String querySelectAll = "SELECT * FROM escola.turmas";
-
                     Statement statement = conn.createStatement();
                     ResultSet r = statement.executeQuery(querySelectAll);
                     
