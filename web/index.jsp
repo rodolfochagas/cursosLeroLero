@@ -49,7 +49,11 @@
                 Class.forName("com.mysql.jdbc.Driver");
 
                 Connection conn = DriverManager.getConnection("jdbc:mysql:// localhost:3306/escola", "root", "");
-                String querySelectAll = "SELECT * FROM escola.cursos";
+                String querySelectAll = "SELECT * FROM escola.cursos c \n" +
+                                    "join escola.instrutores i \n" +
+                                    "join escola.turmas t \n" +
+                                    "where t.cursos_id = c.id \n" +
+                                    "and t.instrutores_id = i.id";
                 String querySelectAllInstructors = "SELECT * FROM escola.instrutores";
                 String querySelectAllStudents = "SELECT * FROM escola.alunos where comentario!='null'";
 
@@ -59,8 +63,15 @@
                 while (r.next()) {
                     out.println("<div class='col-3'>");
                     out.println("<div class='card'>");
-                    out.println("<div class='card-header'>" + r.getString("nome") + "</div>");
-                    out.println("<img class='card-img-top' src= 'images/Cursos/" + + r.getInt("id") + ".jpg' alt='Imagem do Curso'>");
+                    out.println("<div class='card-header'>" + r.getString("c.nome") + "</div>");
+                    out.println("<img class='card-img-top' src= 'images/Cursos/" + r.getInt("c.id") + ".jpg' alt='Imagem do Curso'>");
+                    out.println("<div class='card-body'>");
+                    out.println("<p class'card-text'><b>Turma: </b>" + r.getString("t.id") + "</p>");
+                    out.println("<p class'card-text'><b>Ementa: </b>" + r.getString("c.ementa") + "</p>");
+                    out.println("<p class'card-text'><b>Carga horária: </b>" + r.getInt("c.carga_horaria") + "</p>");
+                    out.println("<p class'card-text'><b>Valor: </b>" + r.getDouble("c.preco") + "</p>");
+                    out.println("<p class'card-text'><b>Instrutor: </b>" + r.getString("i.nome") + "</p>");
+                    out.println("</div>");
                     out.println("</div>");
                     out.println("</div>");
                 }
