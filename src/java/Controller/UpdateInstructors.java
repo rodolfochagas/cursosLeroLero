@@ -42,7 +42,7 @@ public class UpdateInstructors extends HttpServlet {
             Class.forName(dbDriver);
             
             Connection conn = DriverManager.getConnection(dbURL + dbName, dbUsername, dbPassword); 
-             PreparedStatement ps = conn.prepareStatement ("UPDATE escola.alunos\n" +
+             PreparedStatement ps = conn.prepareStatement ("UPDATE escola.instrutores\n" +
             "SET nome=?, email=?, valor_hora=?, login=?, senha=?, experiencia=?\n" +
             "WHERE id=" + id + ";");
     
@@ -59,10 +59,11 @@ public class UpdateInstructors extends HttpServlet {
                 out.println("<!DOCTYPE html>");
                 out.println("<html>");
                 out.println("<head>");
-                out.println("<title>oi</title>");
+                out.println("<title>Instrutores</title>");
                 out.println("</head>");
                 out.println("<body>");
-                out.println("<h1>You are sucessfully registered </h1>");
+                out.println("<h1>Instrutor atualizado com sucesso!</h1>");
+                out.println("<a href='http://localhost:8080/cursosLeroLero/index.jsp' class='btn btn-primary'>Voltar</a>");
                 out.println("</body>");
                 out.println("</html>");
             } else{
@@ -85,7 +86,7 @@ public class UpdateInstructors extends HttpServlet {
                 out.println("<title>oi</title>");
                 out.println("</head>");
                 out.println("<body>");
-                out.println("<h1>Erro " + se + "</h1>");
+                out.println("<h1>Erro " + se + valor_hora + "</h1>");
                 out.println("</body>");
                 out.println("</html>");
         }

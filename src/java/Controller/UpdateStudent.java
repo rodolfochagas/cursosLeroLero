@@ -71,6 +71,7 @@ public class UpdateStudent extends HttpServlet {
                 out.println("</head>");
                 out.println("<body>");
                 out.println("<h1>You are sucessfully registered </h1>");
+                out.println("<a href='http://localhost:8080/cursosLeroLero/index.jsp' class='btn btn-primary'>Voltar</a>");
                 out.println("</body>");
                 out.println("</html>");
             } else{

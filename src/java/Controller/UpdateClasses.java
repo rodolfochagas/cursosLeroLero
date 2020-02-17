@@ -26,7 +26,6 @@ public class UpdateClasses extends HttpServlet {
 //        String data_inicio = request.getParameter("data_inicio");
 //        String data_final = request.getParameter("data_final");
         int carga_horaria = Integer.parseInt(request.getParameter("carga_horaria"));
-        int preco = Integer.parseInt(request.getParameter("preco"));
         
 
         try{ 
@@ -40,15 +39,14 @@ public class UpdateClasses extends HttpServlet {
             
             Connection conn = DriverManager.getConnection(dbURL + dbName, dbUsername, dbPassword); 
              PreparedStatement ps = conn.prepareStatement ("UPDATE escola.turmas\n" +
-            "SET cursos_id=?, instrutores_id=?, data_inicio=?, data_final=?, carga_horaria=?, preco=?\n" +
+            "SET cursos_id=?, instrutores_id=?, data_inicio='2020-01-20', data_final='2020-01-20', carga_horaria=?\n" +
             "WHERE id=" + id + ";");
     
             ps.setInt(1, cursos_id);
             ps.setInt(2, instrutores_id);
 //            ps.setDate(3, data_inicio);
 //            ps.setDate(4, data_final);
-            ps.setInt(5, carga_horaria);
-            ps.setInt(6, preco);
+            ps.setInt(3, carga_horaria);
             
             int i = ps.executeUpdate();
             
@@ -56,10 +54,11 @@ public class UpdateClasses extends HttpServlet {
                 out.println("<!DOCTYPE html>");
                 out.println("<html>");
                 out.println("<head>");
-                out.println("<title>oi</title>");
+                out.println("<title>Turma</title>");
                 out.println("</head>");
                 out.println("<body>");
-                out.println("<h1>You are sucessfully registered </h1>");
+                out.println("<h1>Turma atualizada com sucesso!</h1>");
+                out.println("<a href='http://localhost:8080/cursosLeroLero/index.jsp' class='btn btn-primary'>Voltar</a>");
                 out.println("</body>");
                 out.println("</html>");
             } else{

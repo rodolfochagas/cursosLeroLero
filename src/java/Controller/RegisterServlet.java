@@ -48,7 +48,7 @@ public class RegisterServlet extends HttpServlet {
             
             Connection conn = DriverManager.getConnection(dbURL + dbName, dbUsername, dbPassword); 
              PreparedStatement ps = conn.prepareStatement
-                        ("insert into alunos values(null,?,?,?,?,?,?,?,?,?,?,null,'f')");
+                        ("insert into alunos values(null,?,?,?,?,?,?,?,?,?,?,null,'')");
     
             ps.setString(1, cpf);
             ps.setString(2, name);
@@ -70,7 +70,8 @@ public class RegisterServlet extends HttpServlet {
                 out.println("<title>oi</title>");
                 out.println("</head>");
                 out.println("<body>");
-                out.println("<h1>You are sucessfully registered </h1>");
+                out.println("<h1>Cadastro realizado com sucesso!</h1>");
+                out.println("<a href='http://localhost:8080/cursosLeroLero/index.jsp' class='btn btn-primary'>Voltar</a>");
                 out.println("</body>");
                 out.println("</html>");
             } else{
