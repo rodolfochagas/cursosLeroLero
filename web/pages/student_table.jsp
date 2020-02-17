@@ -25,7 +25,7 @@
             </nav>
 		</header>
 	<div class="container">
-            <form id="formulario-alunos" method="POST" action="../RegisterServlet">
+            <form id="formulario-alunos" method="POST" action="../RegisterServlet" enctype="multipart/form-data">
                 <h2>Alunos</h2>
                 <div class="form-group row" name="tabela-adm">
 
@@ -68,6 +68,10 @@
                   <label class="col-sm-2" for="cep">CEP</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" name="aluno_cep">
+                  </div>
+                  <div class="col-sm-10">
+                    <label for="foto">Selecione uma foto no formato .jpg:</label>                    
+                    <input id="file" type="file" name="aluno_foto"><br><br>
                   </div>
                   <button type="submit" class="btn btn-primary">Enviar</button>
                 </div>

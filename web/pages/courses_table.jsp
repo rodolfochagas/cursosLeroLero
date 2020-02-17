@@ -25,7 +25,7 @@
             </nav>
 		</header>
 	<div class="container">
-            <form id="formulario-cursos" method="POST" action="../NewCourse">
+            <form id="formulario-cursos" method="POST" action="../NewCourse" enctype="multipart/form-data">
                 <h2>Cursos</h2>
                 <div class="form-group row" id="tabela-cursos">
                   <label class="col-sm-2" for="nome">Nome*</label>
@@ -51,7 +51,7 @@
                   <label class="col-sm-2" for="foto">Foto do curso</label>
                   <div class="col-sm-10">
                     <label for="foto">Selecione uma foto no formato .jpg:</label>
-                    <input type="file" name="curso_foto"><br><br>
+                    <input id="file" type="file" name="curso_foto"><br><br>
                   </div>
                   <button type="submit" class="btn btn-primary">Enviar</button>
                 </div>
